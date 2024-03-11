@@ -7,3 +7,8 @@ y ejecutar el siguiente comando:
 
 
 sudo docker-compose -f ejecutar.yml up -d
+
+
+
+Y para acceder al sistema web seria mediante la ruta:
+localhost:8080/anexar
