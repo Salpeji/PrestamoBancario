@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns=""http://www.w3.org/1999/xhtml>
+    
+<head>
+    <title>Solicitud de Préstamo</title>
+    <meta charset="UTF-8">
+</head>
+    
+<body>
+    <h2>Solicitud de Préstamo</h2>
+    <form action="@{/procesarSolicitud}" method="post" th:object="${prestamo}" >
+        <div>
+            <label for="idprestamo">Numero De Solicitud Prestamo:</label>
+            <input type="text" name="idprestamo" th:field ="*{idprestamo}">
+            <span th:if="${#fields.hasErrors('idprestamo')}" th:errores="*{idprestamo}">Error al ingresar monto</span>
+        </div>
+        <div>
+            <label for="montosolicitado">Monto Solicitado:</label>
+            <input type="text" name="montosolicitado" th:field ="*{montosolicitado}">
+            <span th:if="${#fields.hasErrors('montosolicitado')}" th:errores="*{montosolicitado}">Error al ingresar monto</span>
+        </div>
+        <div>
+            <label for="plazo">Plazo:</label>
+            <input type="text" name="plazo" th:field="*{plazo}">
+            <span th:if="${#fields.hasErrors('plazo')}" th:errores="*{plazo}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="cuotamensual">Cuota Mensual:</label>
+            <input type="text" name="cuotamensual" th:field="*{cuotamensual}">
+            <span th:if="${#fields.hasErrors('cuotamensual')}" th:errores="*{cuotamensual}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="fechapago">Fecha de Pago:</label>
+            <input type="text" name="fechapago" th:field="*{fechapago}">
+            <span th:if="${#fields.hasErrors('fechapago')}" th:errores="*{fechapago}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" th:field="*{estado}">
+            <span th:if="${#fields.hasErrors('estado')}" th:errores="*{estado}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="detalle">Detalle:</label>
+            <input type="text" name="detalle" th:field="*{detalle}">
+            <span th:if="${#fields.hasErrors('detalle')}" th:errores="*{detalle}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="fechafinalpago">Fecha Final de Pago:</label>
+            <input type="text" name="fechafinalpago" th:field="*{fechafinalpago}">
+            <span th:if="${#fields.hasErrors('fechafinalpago')}" th:errores="*{fechafinalpago}">Error al ingresar fecha de plazo</span>
+        </div>
+        <div>
+            <label for="persona_id_individuo">ID de Persona:</label>
+            <input type="text" name="persona_id_individuo" th:field="*{persona_id_individuo}">
+            <span th:if="${#fields.hasErrors('persona_id_individuo')}" th:errores="*{persona_id_individuo}">Error al ingresar fecha de plazo</span>
+        </div>
+        <input type="submit" name="procesarSolicitud" value="procesarSolicitud"/>
+    </form>
+</body>
+</html>

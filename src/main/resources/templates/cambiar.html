@@ -1,0 +1,47 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns=""http://www.w3.org/1999/xhtml>
+
+    <head>
+        <title>Datos del nuevo Cliente</title>
+        <meta charset="UTF-8" />
+    </head>
+    
+    <body>
+        <header th:replace="Plantilla/plantilla :: encabezado"></header>
+        <h2>Datos del nuevo cliente</h2>
+        <a th:href="@{/}">Devolver</a>
+        <br/>
+        <form th:action="@{/salvar}" method="post" th:object="${persona}">
+            <input type="hidden" name="id_individuo" th:field="*{id_individuo}"/>
+            <label for="nombre">Nombre: </label>
+            <input type="text" name ="nombre" th:field ="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errores="*{nombre}">Error en Nombre</span>
+            <br/>
+            <label for="apellido">Apellido: </label>
+            <input type="text" name ="apellido" th:field ="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errores="*{apellido}">Error en Apellido</span>
+            <br/>
+            <label for="fechanacimiento">Numero Identificacion: </label>
+            <input type="text" name ="numeroidentificacion" th:field ="*{numeroidentificacion}"/>
+            <span th:if="${#fields.hasErrors('numeroidentificacion')}" th:errores="*{numeroidentificacion}">Error en ingresar cui</span>
+            <br/>
+            <label for="fechanacimiento">Fecha Nacimiento: </label>
+            <input type="text" name ="fechanacimiento" th:field ="*{fechanacimiento}"/>
+            <span th:if="${#fields.hasErrors('fechanacimiento')}" th:errores="*{fechanacimiento}">Error en Fecha Nacimiento</span>
+            <br/>
+            <label for="direccion">Direccion: </label>
+            <input type="text" name ="direccion" th:field ="*{direccion}"/>
+            <span th:if="${#fields.hasErrors('fechanacimiento')}" th:errores="*{fechanacimiento}">Error en ingresar direccion</span>
+            <br/>
+            <label for="correo">Correo: </label>
+            <input type="texto" name ="correo" th:field ="*{correo}"/>
+            <span th:if="${#fields.hasErrors('correo')}" th:errores="*{correo}">Error en Correo</span>
+            <br/>
+            <label for="telefono">Telefono: </label>
+            <input type="text" name ="telefono" th:field ="*{telefono}"/>
+            <br/>
+            <input type="submit" name="salvar" value="Salvar"/>
+        </form>
+        <footer th:replace="Plantilla/plantilla :: piepagina"></footer>
+    </body>
+</html>

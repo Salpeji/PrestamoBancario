@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns: th="http://www.thymeleaf.org">
+    <head>
+        <title>Pagina de Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>GESTION DE PRESTAMOS BANGUAT</h1>
+        <header th:replace="Plantilla/plantilla :: encabezado"></header>
+        <a th:href="@{/anexar}">Agregar Nuevo Cliente</a>
+        <br/>
+        <br/>
+        <a th:href="@{/solicitarPrestamo}">Solicitar Prestamo</a>
+        
+        
+        <h2>Lista de Todos los Clientes</h2>
+        <div th:if="${personas != null and !personas.empty}">
+            <table border="2">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>numero Identificacion</th>
+                    <th>fechanacimiento</th>
+                    <th>Direccion</th>
+                    <th>correo</th>
+                    <th>Telefono</th>
+                    <th>Editar Informacion</th>
+                    <th>Elimar Informacion y Solcitudes de Prestamos</th>
+                <tr>
+                <tr th:each="persona : ${personas}" >
+                    <td th:text="${persona.nombre}">Muestra Nombre</td>
+                    <td th:text="${persona.apellido}">Muestra Apellido</td>
+                    <td th:text="${persona.numeroidentificacion}">Muestra Apellido</td>
+                    <td th:text="${persona.fechanacimiento}">Muestra Edad</td>
+                    <td th:text="${persona.direccion}">Muestra Direccion</td>
+                    <td th:text="${persona.correo}">Muestra Correo</td>
+                    <td th:text="${persona.telefono}">Muestra Telefono</td>
+                    <th> <a th:href="@{/cambiar/} + ${persona.id_individuo}" th:text="Editar"></th>
+                    <th> <a th:href="@{/borrar(id_individuo=${persona.id_individuo})}" th:text="Borrar"></th>
+                <tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}">
+            La Lista no tiene informacion
+        </div>
+        
+        
+        <h2>Lista de Prestamos</h2>
+        <div >
+            Lista de solictud de prestamos bancarios Vacia.
+        </div>
+        
+        
+        
+        
+        <footer th:replace="Plantilla/plantilla :: piepagina"></footer>
+        
+    </body>
+</html>
